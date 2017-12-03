@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Quantophile</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.0/Chart.bundle.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.0/Chart.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.0/Chart.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.0/Chart.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> 
+    <link rel="stylesheet" href="style.css">
+    <script src="js/navbar.js"></script>
+</head>
+
+
+<body class="container dashboard movenavbar" style="padding-top:14px !important;">
+
+
+    <div id="mySidenav" class="sidenav">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <a href="dashboard.html"><span class="glyphicon glyphicon-leaf"></span> Dashboard</a>
+        <a href="strategies.html"><span class="glyphicon glyphicon-briefcase"></span> Strategies</a>
+        <a href="settings.html"><span class="glyphicon glyphicon-wrench"></span> Settings</a>
+        <a href="logout.html"><span class="glyphicon glyphicon-log-out"></span> Logout</a>
+    </div>
+
+
+    <span onclick="openNav()"><span style="color:white; font-size:30px; position:relative; left:-210px;" class="glyphicon glyphicon-th"></span></span>
+
+
+    <!--Now define the graphing interface-->
+    <div class="container flexible" id="ff"> 
+       
+        <div class="maincont" style="padding:15px; background-color:white!important;">
+
+        </div>
+        <div class="sidebar" style="padding:10px;">
+        
+          <label style="padding-top:10px;" for="exampleFormControlFile1">Selected Strategy Files</label>
+          <div style="background:white; overflow-y:scroll; height:290px;display:block;">
+
+
+            <table class=" table table-hover" >
+                <tr>
+                    <td>strategy1.py</td>
+                </tr>
+               <tr>
+                    <td>strat2.py</td>
+                </tr>
+               <tr>
+                    <td>print.py</td>
+                </tr>
+               <tr>
+                    <td>calc.py</td>
+                </tr>  
+            </table>
+            </div>
+
+
+
+            <span class="btn btn-info btn-block btn-file" style="border-radius:0px"  >
+                      Browse <input type="file"></span>
+
+
+            <div style="padding-top:30px;"></div>
+        <button class=" btn btn-block btn-success">Create</button>
+
+
+        </div>
+
+
+        </div>
+
+        </div>
+
+    <div style="background-color:rgba(0,0,0,0.3);">
+        <!-- Centered Pills -->
+        <ul class="nav nav-justified" >
+
+            <li class="" style=""><a href="strategies.html">Index Search</a></li>
+            <li style=""><a href="strategies_manage.html">Manage Strategies</a></li> 
+            <li><a href="strategies_stats.html">Strategy Statistics</a></li> 
+        
+        </ul>
+    </div>
+</body>
+<script>
+
+$('.main_title button').on('click', function() {
+        $(nn).toggleClass('clicked2'); 
+        $(gg).toggleClass('clicked');
+});
+
+$('.transl button').on('click', function() { 
+
+        //UI CHANGES ON BUTTON PUSH
+        ///////////////////////////////////////////////////////////////
+//        $(spinner).toggleClass('faded');
+        $(ff).toggleClass('clicked1');
+        $(gg).toggleClass('clicked2');
+        
+        //CALL CALCULATION SCRIPT
+        ///////////////////////////////////////////////////////////////
+        result_list = get_Degreesmax();
+        return result_list;
+});
+
+$('.transl1 button').on('click', function() {
+        
+//        $(spinner).toggleClass('faded');
+        $(ff).toggleClass('clicked1');
+        $(gg).toggleClass('clicked2');
+});
+
+</script>
+<script>
+
+//SCRIPT TO SOLVE SYS EQNS
+///////////////////////////////////////////////////////////////
+function get_Degreesmax() {
+
+    //READ IN GIVEN VALUES FOR INPUT FIELDS
+    //////////////////////////////////////////////////////////////
+    var height = document.getElementById("height").value;
+    var weight = document.getElementById("weight").value;
+    var lifted_wght = document.getElementById("wght_lifted").value;
+
+    var input = new Array(height, weight, lifted_wght);
+
+    drawchart();
+    //SCRIPT TO LOG RESPONSE, RETURN RESULTS
+    ///////////////////////////////////////////////////////////////
+    function callbackFunc(response) {
+            
+            console.log(response);
+            return response;
+    }
+
+    //CALL PYTHON SCRIPT
+    //////////////////////////////////////////////////////////////
+    $.ajax({
+        type: "POST",
+        url: "/get_max_degrees.py",
+        data: { param: input },
+        success: callbackFunc
+    });
+}
+
+var ctx = document.getElementById("myChart").getContext('2d');
+var myChart = new Chart(ctx, {
+    type: 'line',
+    data: {
+        labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
+        datasets: [{
+            label: 'Allocated Balance',
+            data: [12, 19, 3, 5, 2, 3],
+            backgroundColor: [
+                'rgba(255, 99, 132, 0.2)',
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(255, 206, 86, 0.2)',
+                'rgba(75, 192, 192, 0.2)',
+                'rgba(153, 102, 255, 0.2)',
+                'rgba(255, 159, 64, 0.2)'
+            ],
+            borderColor: [
+                'rgba(255,99,132,1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(255, 159, 64, 1)'
+            ],
+            borderWidth: 1
+        }]
+    },
+    options: {
+        legend:{
+            labels:{
+                fontColor: "white",
+                fontSize: 15
+            
+            }
+        },
+        scales: {
+            yAxes: [{
+                ticks: {
+                    fontColor: "white",
+                    fontSize: 10,
+                    stepSize: 1,
+                    beginAtZero:true
+                }
+            }],
+            xAxes: [{
+                ticks: {
+                    fontColor: "white",
+                    fontSize: 10,
+                    stepSize: 1,
+                    beginAtZero:true
+                }
+            }]
+
+
+        }
+    }
+});
+
+</script>
+</html>

@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Quantophile</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.0/Chart.bundle.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.0/Chart.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.0/Chart.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.0/Chart.min.js"></script>
+</head>
+
+
+
+<video poster="images/video.mp4" id="bgvid" playsinline autoplay muted loop>
+      <!-- WCAG general accessibility recommendation is that media such as background video play through only once. Loop turned on for the purposes of illustration; if removed, the end of the video will fade in the same way created by pressing the "Pause" button  -->
+
+      <source src="images/video.mp4" type="video/mp4">
+</video>
+
+<body class="container mainw" style="padding-top:50px;">
+
+    <!--Title screen-->
+    <div class="container main_title" id="nn">
+        <!--Enter personal data-->
+        <h2>Quantophile Trading</h2>
+
+        <p>Quantophile is a trading framework, that is designed to be running 24/7, with automatic data gathering, using a Python interface. Let's get started with setting up Quantophile on your machine. 
+        </p>
+   
+
+        <button type="btn"><span class="glyphicon glyphicon-chevron-right
+        "></span></button>
+    </div> 
+
+
+    <!--Data entry-->
+      <div class="container rounded  transl" id="gg"> 
+       
+        <div class="container">
+            <!--Instructions-->
+            <p>Let's test if everything's working.</p>
+        
+        </div> 
+
+        <div class="form-group">
+            <label for="exampleInputPassword1">An example stock you want to track</label>
+            <input type="text" class="form-control" id="height" placeholder="AAPL">
+        </div>
+
+           <div class="form-group">
+                <label for="sel1">Select data interval</label>
+                <select multiple class="form-control" id="sel1">
+                    <option>daily</option>
+                    <option>weekly</option>
+                    <option>monthly</option>
+                </select>
+            </div>
+
+
+        <button class="btn btn-success btn-block" onclick="">Next</button>
+
+     </div>
+
+
+   <!--Now define the graphing interface-->
+   <div class="container rounded1 transl1" id="ff"> 
+
+        <h2>Is it working?</h2>
+        <p>You should be seeing the graph of the stock you put as an example, graphed for the intervals you specified. If not, refer to the documentation.</p>
+        
+        <!--Graph printout with data-->
+        <canvas id="myChart"></canvas>            
+
+        <button class="btn btn-success btn-block" onclick="">To the Dashboard!</button>
+        <button class="btn btn-info btn-block" href="www.google.com">Documentation</button>
+
+   </div>
+
+</body>
+<script>
+
+$('.main_title button').on('click', function() {
+        $(nn).toggleClass('clicked2'); 
+        $(gg).toggleClass('clicked');
+});
+
+$('.transl button').on('click', function() { 
+
+        //UI CHANGES ON BUTTON PUSH
+        ///////////////////////////////////////////////////////////////
+//        $(spinner).toggleClass('faded');
+        $(ff).toggleClass('clicked1');
+        $(gg).toggleClass('clicked2');
+        
+        //CALL CALCULATION SCRIPT
+        ///////////////////////////////////////////////////////////////
+        result_list = get_Degreesmax();
+        return result_list;
+});
+
+$('.transl1 button').on('click', function() {
+        
+//        $(spinner).toggleClass('faded');
+        $(ff).toggleClass('clicked1');
+        $(gg).toggleClass('clicked2');
+});
+
+</script>
+<script>
+
+//SCRIPT TO SOLVE SYS EQNS
+///////////////////////////////////////////////////////////////
+function get_Degreesmax() {
+
+    //READ IN GIVEN VALUES FOR INPUT FIELDS
+    //////////////////////////////////////////////////////////////
+    var height = document.getElementById("height").value;
+    var weight = document.getElementById("weight").value;
+    var lifted_wght = document.getElementById("wght_lifted").value;
+
+    var input = new Array(height, weight, lifted_wght);
+
+    drawchart();
+    //SCRIPT TO LOG RESPONSE, RETURN RESULTS
+    ///////////////////////////////////////////////////////////////
+    function callbackFunc(response) {
+            
+            console.log(response);
+            return response;
+    }
+
+    //CALL PYTHON SCRIPT
+    //////////////////////////////////////////////////////////////
+    $.ajax({
+        type: "POST",
+        url: "/get_max_degrees.py",
+        data: { param: input },
+        success: callbackFunc
+    });
+}
+
+function drawchart() {
+var ctx = document.getElementById("myChart").getContext('2d');
+var myChart = new Chart(ctx, {
+    type: 'line',
+    data: {
+        labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
+        datasets: [{
+            label: 'Humeral Joint stress',
+            data: [12, 19, 3, 5, 2, 3],
+            backgroundColor: [
+                'rgba(255, 99, 132, 0.2)',
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(255, 206, 86, 0.2)',
+                'rgba(75, 192, 192, 0.2)',
+                'rgba(153, 102, 255, 0.2)',
+                'rgba(255, 159, 64, 0.2)'
+            ],
+            borderColor: [
+                'rgba(255,99,132,1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(255, 159, 64, 1)'
+            ],
+            borderWidth: 1
+        }]
+    },
+    options: {
+        legend:{
+            labels:{
+                fontColor: "white",
+                fontSize: 15
+            
+            }
+        },
+        scales: {
+            yAxes: [{
+                ticks: {
+                    fontColor: "white",
+                    fontSize: 10,
+                    stepSize: 1,
+                    beginAtZero:true
+                }
+            }],
+            xAxes: [{
+                ticks: {
+                    fontColor: "white",
+                    fontSize: 10,
+                    stepSize: 1,
+                    beginAtZero:true
+                }
+            }]
+
+
+        }
+    }
+});
+};
+</script>
+</html>

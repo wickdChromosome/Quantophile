@@ -1,0 +1,5 @@
+\contentsline {section}{\numberline {1}Abstract }{3}
+\contentsline {section}{\numberline {2}Overview}{3}
+\contentsline {section}{\numberline {3}Interface customization}{3}
+\contentsline {section}{\numberline {4}Data acquisition}{3}
+\contentsline {section}{\numberline {5}Python strategies}{3}

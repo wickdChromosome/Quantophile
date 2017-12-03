@@ -1,0 +1,521 @@
+
+
+  /* Chart.js */
+@-webkit-keyframes chartjs-render-animation {
+    from{opacity:0.99}to{opacity:1}}@keyframes chartjs-render-animation{from{opacity:0.99}to{opacity:1}}.chartjs-render-monitor{-webkit-animation:chartjs-render-animation 0.001s;animation:chartjs-render-animation 0.001s;}
+
+.bs-example{
+    margin: 20px;
+}
+
+.loader {
+    border: 16px solid #f3f3f3; /* Light grey */
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+    animation: spin 4s linear infinite;
+    border-top: 16px solid blue;
+    border-right: 16px solid green;
+    border-bottom: 16px solid red;
+    -moz-transition: opacity .25s ease-in-out;
+    -webkit-transition: opacity .25s ease-in-out;    
+}
+.unfaded {
+    opacity:1;
+    transition: opacity .25s ease-in-out;
+}
+.faded {
+    opacity:0;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+
+body, html {
+    height: 100%;
+
+}
+
+.rounded {
+    border-radius: 25px;
+    border:5px;
+    padding:5px;
+    height:340px;
+    background-color: white;
+}
+
+.rounded1 {
+    border-radius: 25px;
+    border:5px;
+    padding:10px;
+    height:auto;
+    background-color: white;
+}
+
+
+
+.mainw {
+    background-color: black;
+
+}
+
+.full-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+
+body {
+   margin: 0;
+   background: #000; 
+    overflow: hidden;
+}
+video { 
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -100;
+    transform: translateX(-50%) translateY(-50%);
+    background: url('//demosthenes.info/assets/images/polina.jpg') no-repeat;
+    background-size: cover;
+    transition: 1s opacity;
+}
+.stopfade { 
+       opacity: .5;
+}
+
+#polina { 
+      font-family: Agenda-Light, Agenda Light, Agenda, Arial Narrow, sans-serif;
+      font-weight:100; 
+      background: rgba(0,0,0,0.3);
+      color: white;
+      padding: 2rem;
+      width: 33%;
+      margin:2rem;
+      float: right;
+      font-size: 1.2rem;
+}
+h1 {
+      font-size: 3rem;
+      text-transform: uppercase;
+      margin-top: 0;
+      letter-spacing: .3rem;
+}
+.main_title {
+    -webkit-transition:1s; 
+    position: absolute; 
+    top: 200px; 
+    left: 0; 
+    width: 70%;  
+    background: rgba(0,0,0,0.3);
+}
+
+.main_title p{
+     font-family: Agenda-Light, Agenda Light, Agenda, Arial Narrow, sans-serif;
+     font-weight:100; 
+
+     color: white;
+     padding: 2rem;
+     width: 100%;
+     margin:2rem;
+     float: center;
+     font-size: 1.9rem;
+}
+.main_title h2{
+     font-family: Agenda-Light, Agenda Light, Agenda, Arial Narrow, sans-serif;
+     font-weight:100; 
+     color: white;
+     padding: 2rem;
+     width: 100%;
+     margin:2rem;
+     float: center; 
+     font-size: 4rem;
+          }
+
+.transl1 h2{
+     font-family: Agenda-Light, Agenda Light, Agenda, Arial Narrow, sans-serif;
+     font-weight:100; 
+     color: white;
+     padding: 2rem;
+     width: 100%;
+     margin:2rem;
+     float: center; 
+     font-size: 3rem;
+}
+
+
+.transl1 p{
+     font-family: Agenda-Light, Agenda Light, Agenda, Arial Narrow, sans-serif;
+     font-weight:100; 
+
+     color: white;
+     padding: 2rem;
+     width: 100%;
+     margin:2rem;
+     float: center;
+     font-size: 1.5rem;
+}
+
+
+
+
+
+.main_title em {
+      font-family: Agenda-Light, Agenda Light, Agenda, Arial Narrow, sans-serif;
+     font-weight:100; 
+     color: white;
+     padding: 2rem;
+     width: 100%;
+     margin:2rem;
+     float: center; 
+     font-size: 1.5rem;
+
+}
+.main_title button{
+     font-family: Agenda-Light, Agenda Light, Agenda, Arial Narrow, sans-serif;
+    background: rgba(0,0,0,0.3);
+      display: block;
+      width: 80%;
+      padding: .4rem;
+      border: none; 
+      margin: 1rem auto; 
+      font-size: 2rem;
+      background: rgba(255,255,255,0.23);
+      color: #fff;
+      border-radius: 3px; 
+      cursor: pointer;
+      transition: .3s background; 
+}
+.main_title button:hover { 
+       background: rgba(0,0,0,0.5);
+}
+.new_button{
+      font-family: Agenda-Light, Agenda Light, Agenda, Arial Narrow, sans-serif;
+      background: rgba(0,0,0,0.3);
+      display: block;
+      width: 80%;
+      padding: .4rem;
+      border: none; 
+      margin: 1rem auto; 
+      font-size: 2rem;
+      background: rgba(255,255,255,0.23);
+      color: #fff;
+      border-radius: 3px; 
+      cursor: pointer;
+      transition: .3s background; 
+}
+
+.new_button:hover {
+       background: rgba(0,0,0,0.5);
+}
+@media screen and (max-width: 500px) { 
+      div{width:70%;} 
+}
+@media screen and (max-device-width: 800px) {
+      html { background: url(https://thenewcode.com/assets/images/polina.jpg) #000 no-repeat center center fixed; }
+      #bgvid { display: none; }
+}
+.transl {
+      -webkit-transition:1s; 
+      -ms-transform: translate(400%,0%); /* IE 9 */
+      -webkit-transform: translate(400%,0%); /* Safari */
+      transform: translate(400%,0%); /* Standard syntax */ 
+      background: rgba(0,0,0,0.3);
+      width: 400px;
+      min-height: 470px;
+
+}
+
+.transl p{
+     font-family: Agenda-Light, Agenda Light, Agenda, Arial Narrow, sans-serif;
+     font-weight:100; 
+     color: white;
+     padding: 2rem;
+     width: 100%;
+     margin:2rem;
+     float: center;
+     font-size: 1.9rem;
+}
+
+.transl label{
+     font-family: Agenda-Light, Agenda Light, Agenda, Arial Narrow, sans-serif;
+     font-weight:100; 
+     color: white;
+     width: 100%;
+     margin:2rem;
+     float: center;
+     font-size: 1.5rem;
+}
+
+.transl h2{
+     font-family: Agenda-Light, Agenda Light, Agenda, Arial Narrow, sans-serif;
+     font-weight:100; 
+     color: white;
+     padding: 1rem;
+     width: 100%;
+     margin:2rem;
+     float: center; 
+     font-size: 3rem;
+    }
+
+.transl1{
+      -webkit-transition:1s;   
+      -ms-transform: translate(120%,-60%); /* IE 9 */
+      -webkit-transform: translate(120%,-60%); /* Safari */
+      transform: translate(120%,-60%); /* Standard syntax */ 
+      background: rgba(0,0,0,0.4);
+}
+.clicked {
+    -ms-transform: translate(0%,0%); /* IE 9 */
+    -webkit-transform: translate(0%,0%); /* Safari */
+    transform: translate(0%,0%); /* Standard syntax */
+}
+.clicked1 {
+    -ms-transform: translate(0%,-60%); /* IE 9 */
+    -webkit-transform: translate(0%,-60%); /* Safari */
+    transform: translate(0%, -60%); /* Standard syntax */
+}
+
+.clicked2 {
+    -ms-transform: translate(-300%,0%); /* IE 9 */
+    -webkit-transform: translate(-300%,0%); /* Safari */
+    transform: translate(-300%,0%); /* Standard syntax */
+}
+input[type=text] {
+    box-sizing: border-box;
+    margin: 4px 0;
+    padding: 10px 15px;
+    width:100%;
+    background-color: rgba(0,0,0,0.6);
+    color: white;
+} 
+label{
+    color: white;
+}
+
+select {
+    padding: 10px 15px;
+    width:100%;
+    background: rgba(0,0,0,0.6);
+}
+
+.settings {
+    background-image: url("images/grid14.png");
+    background-repeat: repeat;
+    background-color:#0080FF;
+}
+
+.settings .container{
+      background: #36454F;
+      width: 100%;
+      min-height: 470px;
+}
+
+.settings h2{
+    
+     font-family: Agenda-Light, Agenda Light, Agenda, Arial Narrow, sans-serif;
+     font-weight:100; 
+     color: white;
+     padding: 2rem;
+     width: 100%;
+     margin:2rem;
+     float: center; 
+     font-size: 4rem;
+
+}
+
+
+
+.dashboard {
+    background-image: url("images/footer_lodyas.png");
+    background-repeat: repeat;
+    background-color:#0080FF;
+}
+
+.dashboard .container{
+      background: #36454F;
+      width: 100%;
+      min-height: 470px;
+}
+
+.dashboard h2{
+    
+     font-family: Agenda-Light, Agenda Light, Agenda, Arial Narrow, sans-serif;
+     font-weight:100; 
+     color: white;
+     padding: 2rem;
+     width: 100%;
+     margin:2rem;
+     float: center; 
+     font-size: 4rem;
+
+}
+
+.logincont{
+    flex-grow:1;
+    width:10px;
+
+}
+
+.sidebutton{
+    padding-right:0px !important;
+    float:right;
+}
+
+
+.sidebar{
+    width:200px;
+    padding-right:0px !important;
+    float:right;
+}
+
+.flexible{
+    display:flex;
+
+}
+.maincont{
+    flex-grow:1;
+}
+
+/* The side navigation menu */
+.sidenav {
+    height: 100%; /* 100% Full-height */
+    width: 0; /* 0 width - change this with JavaScript */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Stay on top */
+    top: 0;
+    left: 0;
+    background-color: #111; /* Black*/
+    overflow-x: hidden; /* Disable horizontal scroll */
+    padding-top: 60px; /* Place content 60px from the top */
+    transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
+}
+
+
+
+/* The navigation menu links */
+.sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: 0.3s
+}
+
+/* When you mouse over the navigation links, change their color */
+.sidenav a:hover, .offcanvas a:focus{
+    color: #f1f1f1;
+}
+
+/* Position and style the close button (top right corner) */
+.sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+
+
+/* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+@media screen and (max-height: 450px) {
+    .sidenav {padding-top: 15px;}
+        .sidenav a {font-size: 18px;}
+ }
+
+
+#main {
+    transition: margin-left .5s;
+    padding: 20px;
+}
+
+.btn-file {
+        position: relative;
+        overflow: hidden;
+}
+.btn-file input[type=file] {
+    position: absolute;
+    top: 0;
+    right: 0;
+    min-width: 100%;
+    min-height: 100%;
+    font-size: 100px;
+    text-align: right;
+    filter: alpha(opacity=0);
+    opacity: 0;
+    outline: none;
+    background: white;
+    cursor: inherit;
+    display: block;
+}
+
+
+
+.login-bg {
+    background-image: url("images/congruent_outline.png");
+    background-repeat: repeat;
+    background-color:#0080FF;
+}
+
+
+.login-btn{
+    border-radius:0px;
+    background-color:rgba(0,0,0,0.01);
+    height:168px;
+    
+}
+
+
+.btn button:hover {
+
+    font-color:black;
+
+    
+}
+
+
+
+
+.login-page {
+    -webkit-transition:1s; 
+    position: center; 
+    top: 100px; 
+    background: rgba(0,0,0,0.6);
+}
+
+.login-page p{
+     font-family: Agenda-Light, Agenda Light, Agenda, Arial Narrow, sans-serif;
+     font-weight:100; 
+
+     color: white;
+     padding: 2rem;
+     width: 100%;
+     margin:2rem;
+     float: center;
+     font-size: 1.9rem;
+}
+.login-page h2{
+     font-family: Agenda-Light, Agenda Light, Agenda, Arial Narrow, sans-serif;
+     font-weight:100; 
+     color: white;
+     padding: 2rem;
+     width: 100%;
+     margin:2rem;
+     float: center; 
+     font-size: 4rem;
+          }
+
+
+
+
